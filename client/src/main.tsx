@@ -15,6 +15,17 @@ import "./editorial-retheme.css";
 import "./seamless-motion.css";
 import { applySiteTheme, normalizeTheme, THEME_STORAGE_KEY } from "./lib/siteTheme";
 
+// Dynamically load Umami analytics if environment variables are provided
+const analyticsEndpoint = import.meta.env.VITE_ANALYTICS_ENDPOINT;
+const analyticsWebsiteId = import.meta.env.VITE_ANALYTICS_WEBSITE_ID;
+if (analyticsEndpoint && analyticsWebsiteId) {
+  const script = document.createElement("script");
+  script.defer = true;
+  script.src = `${analyticsEndpoint}/umami`;
+  script.setAttribute("data-website-id", analyticsWebsiteId);
+  document.head.appendChild(script);
+}
+
 try {
   applySiteTheme(normalizeTheme(window.localStorage.getItem(THEME_STORAGE_KEY)) ?? "light");
 } catch {
