@@ -1,0 +1,118 @@
+.conversion-site {
+  --ed-bg: #050202;
+  --ed-surface: rgba(21, 8, 4, .74);
+  --ed-surface-soft: rgba(36, 11, 4, .74);
+  --ed-text: #fff6ec;
+  --ed-muted: #c6a696;
+  --ed-line: rgba(244, 181, 139, .18);
+  --ed-accent: #efa36f;
+  --ed-warm: #f3c28f;
+  --ed-shadow: rgba(0, 0, 0, .6);
+  background: #050202;
+  color: var(--ed-text);
+}
+.conversion-site::before { position: absolute; z-index: 0; inset: 0 0 auto; height: 760px; background: radial-gradient(ellipse at 48% -14%, rgba(153, 64, 35, .54), transparent 57%), radial-gradient(ellipse at 16% 23%, rgba(95, 32, 15, .28), transparent 34%); content: ""; pointer-events: none; }
+.conversion-site > * { position: relative; z-index: 1; }
+.conversion-site .conversion-section, .conversion-site .final-cta-section, .conversion-site .conversion-footer { border-color: var(--ed-line); }
+.conversion-site .conversion-section { width: min(1020px, calc(100% - 72px)); padding: clamp(86px, 10vw, 144px) 0; }
+.conversion-site .conversion-section h2, .conversion-site .final-cta-section h2, .conversion-site .waitlist-copy h1 { color: var(--ed-text); font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.055em; line-height: .98; }
+.conversion-site .conversion-section h2 em, .conversion-site .final-cta-section h2 em, .conversion-site .waitlist-copy h1 em { color: #f2ae79; }
+.conversion-site .conversion-kicker { color: #f0b180; }
+.conversion-site .section-intro > p:not(.conversion-kicker), .conversion-site .difference-copy > p, .conversion-site .problem-copy p, .conversion-site .workflow-card > p, .conversion-site .audience-panel p, .conversion-site .vision-close p, .conversion-site .faq-item p, .conversion-site .waitlist-copy > p:not(.conversion-kicker) { color: var(--ed-muted); }
+.conversion-site .problem-section, .conversion-site .difference-section, .conversion-site .audience-section, .conversion-site .vision-section, .conversion-site .faq-section-new, .conversion-site .how-section { border-top: 1px solid var(--ed-line); }
+.conversion-site .problem-copy { border-left-color: rgba(239,163,111,.38); }
+.conversion-site .problem-copy strong { border-left-color: #efa36f; color: var(--ed-text); }
+.conversion-site .workflow-card, .conversion-site .audience-panel { border-color: rgba(244,181,139,.2); border-radius: 0; background: linear-gradient(150deg, rgba(68, 23, 10, .48), rgba(10, 3, 1, .6)); box-shadow: inset 0 1px rgba(255,255,255,.05), 0 27px 60px -50px #000; }
+.conversion-site .workflow-card:hover, .conversion-site .audience-panel:hover { border-color: rgba(244,181,139,.48); }
+.conversion-site .workflow-card > span, .conversion-site .audience-panel > span, .conversion-site .difference-points .is-highlight, .conversion-site .vision-question:last-child { color: #efa36f; }
+.conversion-site .workflow-card h3, .conversion-site .audience-panel h3, .conversion-site .vision-close h3 { color: var(--ed-text); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.conversion-site .prompt-list p { color: #f6d9c4; }
+.conversion-site .difference-points { border-left: 1px solid var(--ed-line); }
+.conversion-site .difference-points p { color: var(--ed-muted); }
+.conversion-site .vision-question, .conversion-site .faq-item { border-color: var(--ed-line); color: var(--ed-text); }
+.conversion-site .faq-list-new { border-top: 1px solid var(--ed-line); }
+.conversion-site .faq-item summary { color: var(--ed-text); }
+.conversion-site .final-cta-section { overflow: hidden; background: radial-gradient(ellipse at 60% 0%, rgba(161, 67, 34, .38), transparent 50%), #050202; }
+.conversion-site .final-cta-section::before { position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, transparent, rgba(0,0,0,.75)); content: ""; }
+.conversion-site .conversion-button { border-color: rgba(255,246,236,.55); border-radius: 999px; background: transparent; color: var(--ed-text); }
+.conversion-site .conversion-button:hover, .conversion-site .conversion-button:focus-visible { background: var(--ed-text); color: #331003; }
+.conversion-site .conversion-button.primary { border-color: #f7e5d4; background: #f7e5d4; color: #301004; }
+.conversion-site .conversion-button.primary:hover, .conversion-site .conversion-button.primary:focus-visible { background: #e89f6c; border-color: #e89f6c; color: #2d0b02; }
+.conversion-site .conversion-footer { color: var(--ed-muted); }
+.conversion-site .conversion-footer a:hover { color: var(--ed-text); }
+
+/* Final invitation: an open, divider-free field rather than another bordered chapter. */
+.conversion-site .final-cta-section { display: grid; min-height: min(660px, 72svh); padding: clamp(72px, 11vw, 152px) max(36px, calc((100vw - 1020px) / 2)); border: 0; margin: 0; place-items: center; scroll-margin-top: 12px; background: #050202; }
+.conversion-site .final-cta-section::before, .conversion-site .final-cta-section::after { content: none; }
+.conversion-site .final-cta-copy { position: relative; width: min(820px, 100%); max-width: 820px; padding: clamp(42px, 8vw, 88px) clamp(24px, 7vw, 72px); overflow: hidden; text-align: center; }
+.conversion-site .final-cta-copy::before { content: none; }
+.conversion-site .final-cta-copy h2 { max-width: 730px; margin: 15px auto 0; font-size: clamp(42px, 5vw, 71px); }
+.conversion-site .final-cta-copy > p:not(.conversion-kicker) { max-width: 410px; margin: 18px auto 0; color: var(--ed-muted); font-size: 14px; line-height: 1.65; }
+.conversion-site .final-cta-copy .conversion-button { margin-top: 0; box-shadow: 0 13px 35px -20px rgba(0,0,0,.72); }
+.cta-waitlist-form { display: flex; width: min(520px, 100%); margin: 28px auto 0; gap: 9px; }
+.cta-waitlist-form > label { min-width: 0; flex: 1; }
+.cta-waitlist-form input { width: 100%; height: 50px; padding: 0 16px; border: 1px solid rgba(244, 181, 139, .26); border-radius: 0; outline: 0; background: rgba(255, 244, 233, .07); color: var(--ed-text); font: inherit; font-size: 14px; }
+.cta-waitlist-form input::placeholder { color: rgba(238, 213, 194, .46); }
+.cta-waitlist-form input:focus { border-color: #efa36f; box-shadow: 0 0 0 3px rgba(239, 163, 111, .13); }
+.cta-waitlist-form input[aria-invalid="true"] { border-color: #f4b087; box-shadow: 0 0 0 3px rgba(244, 176, 135, .12); }
+.cta-waitlist-form .conversion-button { min-height: 50px; padding-inline: 16px; font-size: 10px; letter-spacing: .03em; white-space: nowrap; }
+.cta-waitlist-form .conversion-button:disabled { cursor: wait; opacity: .82; }
+.cta-submit-spinner { animation: cta-submit-spin 720ms linear infinite; }
+@keyframes cta-submit-spin { to { transform: rotate(360deg); } }
+.cta-waitlist-success { display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 28px !important; color: #f7e5d4 !important; text-align: left; animation: cta-success-enter 420ms cubic-bezier(.23, 1, .32, 1) both; }
+.cta-success-mark { display: grid; width: 28px; height: 28px; flex: 0 0 28px; place-items: center; border: 1px solid rgba(239,163,111,.58); border-radius: 50%; background: rgba(239,163,111,.09); color: #efa36f; animation: cta-success-pop 440ms cubic-bezier(.23, 1, .32, 1) both; }
+.cta-success-mark svg path { stroke-dasharray: 24; stroke-dashoffset: 24; animation: cta-success-draw 300ms 120ms cubic-bezier(.23, 1, .32, 1) forwards; }
+.cta-waitlist-success strong, .cta-waitlist-success small { display: block; }
+.cta-waitlist-success strong { font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+.cta-waitlist-success small { margin-top: 2px; color: var(--ed-muted); font-size: 11px; }
+.cta-waitlist-success small b { color: #f7e5d4; font-weight: 650; overflow-wrap: anywhere; }
+@keyframes cta-success-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes cta-success-pop { from { opacity: 0; transform: scale(.84); } 65% { transform: scale(1.07); } to { opacity: 1; transform: scale(1); } }
+@keyframes cta-success-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .cta-waitlist-success, .cta-success-mark, .cta-success-mark svg path, .cta-submit-spinner { animation: none; } .cta-success-mark svg path { stroke-dashoffset: 0; } }
+.cta-form-error { margin: 12px auto 0 !important; color: #f4b087 !important; font-size: 13px !important; }
+.conversion-site .final-cta-section + .conversion-footer { border-top: 0; }
+
+.waitlist-page { min-height: 100svh; background: radial-gradient(ellipse at 50% -12%, rgba(142, 56, 29, .6), transparent 49%), #060202; }
+.waitlist-page::before { height: 100%; background: radial-gradient(ellipse at 87% 55%, rgba(85, 26, 10, .25), transparent 34%); }
+.waitlist-page .editorial-nav { width: min(880px, calc(100% - 72px)); border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.waitlist-page .conversion-brand, .waitlist-page .back-home { color: var(--ed-text); }
+.waitlist-page .back-home { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
+.waitlist-page-content { width: min(920px, calc(100% - 72px)); grid-template-columns: minmax(0, 1fr) minmax(330px, .75fr); gap: clamp(50px, 10vw, 134px); }
+.waitlist-copy h1 { font-size: clamp(50px, 5.5vw, 78px); }
+.waitlist-benefit { color: #ead2c1; }
+.waitlist-benefit svg, .waitlist-count b { color: #efa36f; }
+.waitlist-card { border-color: rgba(244,181,139,.26); border-radius: 0; background: linear-gradient(145deg, rgba(38, 11, 4, .92), rgba(9, 3, 1, .94)); box-shadow: 0 36px 70px -40px #000, inset 0 1px rgba(255,255,255,.08); }
+.waitlist-card-top { border-color: var(--ed-line); color: var(--ed-text); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.waitlist-card-top svg { color: #efa36f; }
+.waitlist-card label { color: #f8e5d4; }
+.waitlist-card label small, .form-note, .waitlist-count { color: var(--ed-muted); }
+.waitlist-card input, .waitlist-card textarea { border-color: rgba(244,181,139,.24); border-radius: 0; background: rgba(255,244,233,.055); color: var(--ed-text); }
+.waitlist-card input:focus, .waitlist-card textarea:focus { border-color: #efa36f; box-shadow: 0 0 0 3px rgba(239,163,111,.13); }
+.waitlist-card input::placeholder, .waitlist-card textarea::placeholder { color: rgba(238,213,194,.45); }
+.waitlist-minimal-content { display: grid; width: min(520px, calc(100% - 72px)); min-height: calc(100svh - 72px); grid-template-columns: 1fr; gap: 25px; padding: 58px 0 72px; place-content: center; text-align: center; }
+.waitlist-minimal-content .waitlist-intro { max-width: 420px; margin: 0 auto; }
+.waitlist-minimal-content .waitlist-copy h1 { margin: 0; font-size: clamp(46px, 5.5vw, 68px); }
+.waitlist-minimal-content .waitlist-copy > p:not(.conversion-kicker) { margin: 13px auto 0; font-size: 14px; }
+.waitlist-minimal-content .waitlist-card { width: 100%; padding: 25px; text-align: left; }
+.waitlist-minimal-content .waitlist-card-top { justify-content: center; padding-bottom: 17px; margin-bottom: 20px; }
+.waitlist-minimal-content .waitlist-card label { margin-bottom: 16px; }
+.waitlist-minimal-content .waitlist-card textarea { min-height: 96px; }
+.waitlist-minimal-content .form-submit { margin-top: 0; }
+
+@media (max-width: 850px) {
+  .conversion-site .conversion-section { width: calc(100% - 36px); padding: 74px 0; }
+  .conversion-site .workflow-card, .conversion-site .audience-panel { border-radius: 0; }
+  .waitlist-page .editorial-nav, .waitlist-page-content { width: calc(100% - 36px); }
+  .waitlist-page-content { grid-template-columns: 1fr; padding: 68px 0; gap: 46px; }
+  .waitlist-minimal-content { min-height: calc(100svh - 56px); padding: 42px 0 56px; gap: 24px; }
+  .waitlist-minimal-content .waitlist-copy h1 { font-size: clamp(44px, 13vw, 58px); }
+  .waitlist-minimal-content .waitlist-card { padding: 20px; }
+  .waitlist-copy h1 { font-size: clamp(47px, 13vw, 63px); }
+  .waitlist-card { border-radius: 0; }
+  .conversion-site .final-cta-section { min-height: 580px; padding: 76px 18px; }
+  .conversion-site .final-cta-copy { padding: 54px 13px; }
+  .conversion-site .final-cta-copy h2 { font-size: clamp(38px, 11vw, 52px); }
+  .cta-waitlist-form { max-width: 440px; flex-direction: column; }
+  .cta-waitlist-form .conversion-button { width: 100%; }
+}

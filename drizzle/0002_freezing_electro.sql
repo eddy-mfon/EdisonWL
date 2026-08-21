@@ -1,0 +1,1 @@
+ALTER TABLE `waitlist_submissions` MODIFY COLUMN `problem` text NOT NULL;

@@ -1,0 +1,153 @@
+# Edison Upgrade Checklist
+
+- [x] Compare two free, low-friction notification workflows for formatted waitlist submissions.
+- [x] Confirm the preferred messaging delivery target: stored waitlist with email and Telegram alerts.
+- [x] Obtain the recipient email address, Telegram bot token, and Telegram destination chat ID.
+- [x] Upgrade the site foundation to support secure persistence of waitlist submissions.
+- [x] Install and integrate GSAP with ScrollTrigger for reduced-motion-aware chapter choreography.
+- [x] Add hover and focus transitions that make every use-case scene feel materially distinct.
+- [x] Configure secure server-side Gmail and Telegram delivery with persisted notification status.
+- [x] Test the public waitlist submission contract alongside live notification credentials, GSAP motion behavior, and responsive rendering before saving a delivery checkpoint.
+- [x] Add a server-validated honeypot field that silently rejects automated waitlist submissions.
+- [x] Create an owner-only CSV export of all stored waitlist submissions.
+- [x] Reduce the public waitlist form to required email and optional suggestion fields.
+- [x] Remove the progress bar and diagram-style flow mockups from the immersive landing narrative.
+- [x] Upgrade cinematic chapter motion while preserving accessibility and reduced-motion support.
+- [x] Test the minimal waitlist, honeypot, CSV export contract, and responsive visual experience.
+- [x] Choose the secure Telegram command-reporting path for on-demand waitlist statistics.
+- [x] Add durable server-side submission rate limiting with user-safe retry feedback.
+- [x] Add a live submission counter and track successful conversion events.
+- [x] Create a cinematic personalized waitlist success sequence.
+- [x] Extend GSAP choreography across the complete Edison narrative without compromising accessibility.
+- [x] Implement verified Telegram bot reporting for authorized waitlist summaries.
+- [x] Test rate limits, responsive motion, and Telegram reporting access.
+- [x] Add a client-side test for the conversion analytics dispatch and personalized success-name logic.
+- [x] Add a component-level test for the visible cinematic success state and reduced-motion animation gate.
+- [x] Activate the Telegram reporting webhook from the published Edison site and verify a live /stats response.
+- [x] Replace preview-mode Telegram activation errors with clear, non-blocking published-site guidance.
+- [x] Verify the live reporting webhook on the Edison published domain and confirm a /stats reply.
+- [x] Rebuild the hero as a black, playful Edison sticker composition inspired by the supplied reference.
+- [x] Restructure the public story as Hero, About, Students, Small Companies, Enterprises, CTA, Waitlist, and Footer.
+- [x] Replace dense product language with short, plain, audience-specific copy.
+- [x] Add a cohesive GSAP animation system for hero, about, audience chapters, CTA, and waitlist with reduced-motion support.
+- [x] Add the final footer choreography in the public GSAP sequence.
+- [x] Verify footer entrance behavior at desktop and mobile sizes, then rerun final production checks.
+- [x] Verify the redesigned desktop and mobile layouts while preserving server-side waitlist, analytics, export, and Telegram contracts.
+- [x] Verify the redesigned public form and protected owner screen in-browser, with the success state covered by a rendered component test to avoid creating an unwanted live submission.
+- [x] Confirm the Telegram reporting module loads cleanly at runtime before completing live published-domain webhook verification.
+- [x] Add a Telegram reporting fallback when the inbound update cannot be used as a reply target.
+- [x] Make the Edison hero a true full-viewport black immersive scene with no white surround.
+- [x] Add richer note-card and signal-orbit mockups for Students, Growing Teams, and Enterprises.
+- [x] Replace the Small Companies label with Growing Teams and improve the post-enterprise chapter.
+- [x] Strengthen section-to-section GSAP transitions and all text/div motion while retaining reduced-motion support.
+- [x] Redesign the public footer and remove the public Owner tools link.
+- [x] Create linked Privacy Policy and Terms of Service routes with an attorney-review notice.
+- [x] Verify desktop/mobile immersion and preserved waitlist contracts after the redesign.
+- [x] Observe redesigned GSAP section transitions in-browser at desktop size.
+- [x] Observe redesigned GSAP section transitions through audience and footer at a mobile viewport.
+- [x] Verify CTA and waitlist GSAP transition states at a mobile viewport.
+- [x] Fix the mobile CTA reveal so its content cannot remain hidden after the scroll trigger is crossed.
+- [x] Verify the waitlist success scene through its rendered test coverage without creating a live test submission.
+- [x] Check Privacy Policy and Terms of Service routes at a mobile viewport.
+- [x] Define concise FAQ answers for students and growing teams.
+- [x] Add an accessible FAQ section directly above the public footer.
+- [x] Add interactive hover and keyboard-focus detail reveals to Students note-cards.
+- [x] Add interactive hover and keyboard-focus detail reveals to Growing Teams note-cards.
+- [x] Verify the new FAQ, card interactions, responsive layout, and preserved waitlist behavior.
+- [x] Audit and repair the audience-section hierarchy, hidden pre-waitlist scene, and waitlist branding treatment.
+- [x] Generate premium Edison chatbot phone and laptop mockups for the hero and CTA.
+- [x] Rework the Students, Growing Teams, and Enterprises layouts for clearer desktop and mobile reading order.
+- [x] Integrate responsive device mockups and enhance GSAP motion without conflicting triggers.
+- [x] Remove the Edison wordmark and mark from the waitlist intro.
+- [x] Verify every public section, animation, interaction, and mobile breakpoint after the redesign.
+- [x] Confirm the generated hero and CTA device mockups are final non-placeholder assets.
+- [x] Re-verify all public homepage sections, interactions, and legal-page routes on desktop and mobile after the redesign.
+- [x] Capture the finished hero and CTA mockup scenes from the live page for final visual confirmation.
+- [x] Verify navigation, note-card, FAQ, CTA, waitlist, and legal-page interactions across desktop and mobile.
+- [x] Confirm FAQ and interactive audience note-card states at the desktop breakpoint after the redesign.
+- [x] Confirm Privacy and Terms return-navigation behavior at desktop and mobile breakpoints.
+- [x] Present the current public-site copy for review before redesign work begins.
+- [x] Add an accessible navigation theme toggle with a persisted user preference.
+- [x] Create a transparent, clean phone-and-computer Edison mockup inspired by the supplied reference composition.
+- [x] Remove the mockup and embedded waitlist form from the home-page CTA flow.
+- [x] Create a dedicated public waitlist page and direct all Join actions to it.
+- [x] Verify theme behavior, routes, responsive layout, and form functionality across desktop and mobile.
+- [x] Replace the existing homepage messaging with the supplied high-conversion Edison copy.
+- [x] Structure the homepage around Problem, How It Works, Difference, Who It’s For, Vision, FAQ, and final CTA sections.
+- [x] Preserve the supplied copy’s waitlist messaging on the dedicated waitlist route.
+- [x] Confirm the transparent hero mockup is the completed non-placeholder asset on the live page.
+- [x] Verify the dedicated waitlist page’s successful and protected submission behavior on desktop and mobile.
+- [x] Remove the remaining backdrop artifact from the hero device mockup while preserving the clean phone-and-laptop composition.
+- [x] Record a final live visual confirmation that the restored hero mockup is complete and non-placeholder.
+- [x] Record desktop and mobile confirmation that the restored hero mockup has no rectangular or backdrop artifact.
+- [x] Establish Edison’s milk-white, black, and brown light-mode glass design tokens.
+- [x] Replace the device-led hero focal point with an interactive glass chat workspace inspired by the supplied reference.
+- [x] Apply cohesive glass panels, borders, and atmospheric depth across the homepage and dedicated waitlist page.
+- [x] Verify contrast, glass readability, chat interaction, responsive layouts, and preserved waitlist behavior in the light-first design.
+- [x] Re-run safe end-to-end waitlist validation and honeypot success checks after the glass redesign.
+- [x] Verify key light-mode text and glass-panel contrast after the final visual adjustments.
+- [x] Verify actual rendered pixel contrast for the light-mode hero chat, FAQ glass panel, and waitlist card on desktop and mobile.
+- [x] Upload and use the supplied brown abstract image as the Edison hero background.
+- [x] Remove the dark-mode control from the hero navigation.
+- [x] Rebuild only the hero around the supplied structured product-widget direction.
+- [x] Verify the hero-only concept at desktop and mobile sizes before expanding the rest of the site.
+- [x] Replace the current hero with the latest reference-inspired centered editorial brown-to-black composition.
+- [x] Adapt the compact navigation, workspace panel, proof badge, and visual hierarchy to Edison’s copy.
+- [x] Verify the revised reference-inspired hero at desktop and mobile sizes before changing any other section.
+- [x] Redesign the hero workspace with distinct Edison memory, source, decision, and next-step affordances.
+- [x] Apply the warm editorial brown-to-black visual language across all public landing sections.
+- [x] Restyle the dedicated waitlist page to match the refined dark Edison product aesthetic.
+- [x] Verify full-site responsive behavior, interactive states, accessible contrast, and protected waitlist flow after the visual rewrite.
+- [x] Verify actual rendered dark-editorial contrast for hero text, decision workspace, content panels, FAQ, and waitlist form at desktop and mobile sizes.
+- [x] Redesign the hero chat mockup into a more distinctive Edison conversation and context interface.
+- [x] Preserve the existing editorial hero treatment while replacing only the chat mockup structure and affordances.
+- [x] Verify the refined hero mockup’s interaction, desktop composition, and mobile layout.
+- [x] Make the FAQ open, close, and content reveal feel seamless and reduced-motion-safe.
+- [x] Unify page-wide section and micro-interaction motion into a smoother editorial rhythm.
+- [x] Simplify the dedicated waitlist page into a fast centered form with only email and optional thoughts.
+- [x] Reduce waitlist copy and remove nonessential visual and informational elements.
+- [x] Verify FAQ behavior, page motion, waitlist performance, responsive layout, and protected submission flow.
+- [x] Measure dedicated waitlist navigation and ready-state performance at desktop and mobile sizes.
+- [x] Generate a sharp transparent Edison phone-and-laptop mockup set for approval.
+- [x] Present the mockup set before changing the hero implementation.
+- [x] After approval, replace the hero memory-thread mockup with the approved Edison device scene.
+- [x] Polish the immersive hero UI and verify responsive motion, conflicts, and production errors.
+- [x] Integrate the approved transparent phone-and-laptop Edison device scene into the hero.
+- [x] Adapt the laptop workspace toward Edison’s welcome, memory rail, ask field, and next-action interaction model.
+- [x] Verify the approved device scene, hero motion, responsive composition, and production behavior.
+- [x] Remove the baked checkerboard backdrop from the hero device scene while preserving its phone and laptop interface content.
+- [x] Verify the final hero device scene participates in the intended GSAP entrance and scroll-parallax motion at desktop and mobile sizes.
+- [x] Inspect the final uploaded device scene to confirm the phone loading UI and Edison laptop welcome, memory rail, ask field, and next-action modes remain intact.
+- [x] Diagnose and restore reliable hero phone-and-laptop mockup rendering on the public site.
+- [x] Remove the CTA section’s top and bottom divider lines.
+- [x] Redesign the CTA as a cleaner immersive conversion moment without the divider treatment.
+- [x] Verify CTA composition, hero asset loading, motion, and responsive behavior at desktop and mobile sizes.
+- [x] Verify the repaired hero scene’s GSAP entrance/parallax and the redesigned CTA’s motion at desktop and mobile sizes.
+- [x] Add a reduced-motion-safe CTA reveal and ambient orbit motion to the redesigned divider-free conversion moment.
+- [x] Add and verify subtle reduced-motion-safe ambient motion for the CTA orbit accents.
+- [x] Replace the final CTA link with a protected email-only waitlist submission form.
+- [x] Shorten the final CTA action copy while preserving clear waitlist intent.
+- [x] Simplify authorized Telegram reporting to registered-email output and a total-count command.
+- [x] Test the CTA form, Telegram reporting, responsive presentation, and production build after the simplification.
+- [x] Upload and apply the supplied forest image as the homepage hero background.
+- [x] Extend the forest image’s deep black lower tone as the shared background below the hero.
+- [x] Verify the background treatment at desktop and mobile widths, then build for production.
+- [x] Add automated desktop/mobile checks for the forest hero asset and the continuous deep-black lower-page background.
+- [x] Make the landing page’s inline email form the primary public waitlist destination.
+- [x] Verify public join navigation, safe form behavior, responsive layout, and production build.
+- [x] Add automated desktop/mobile layout checks for the landing-page waitlist form’s visibility and bounds.
+- [x] Refine the supplied forest hero image for sharper deployed presentation.
+- [x] Remove CTA orbit/glow circles and use a plain shared deep-black CTA background.
+- [x] Reduce the Join waitlist button type size and align all lower-page background tones.
+- [x] Add reduced-motion-safe hover refinements across interactive public-page elements.
+- [x] Remove obsolete CTA orbit animation logic and audit the final black-base treatment.
+- [x] Verify the refined visual system at desktop and mobile widths, then rerun tests and the production build.
+- [x] Add a subtle animated checkmark and success message to the landing-page waitlist confirmation state.
+- [x] Verify the rendered landing-page success checkmark, confirmation copy, animation target, and reduced-motion behavior.
+- [x] Verify the waitlist success animation at desktop and mobile widths, with reduced-motion support, tests, and a production build.
+- [x] Add an accessible in-button spinner while the landing-page waitlist email is processing.
+- [x] Verify the pending spinner, success handoff, reduced-motion behavior, tests, and production build.
+- [x] Show inline feedback for invalid-format and already-registered waitlist emails.
+- [x] Include the submitted email address in the landing-page success confirmation.
+- [x] Verify the rendered duplicate-email error below the landing-page waitlist form.
+- [x] Verify invalid, duplicate, success, responsive, reduced-motion, test, and production-build behavior.
