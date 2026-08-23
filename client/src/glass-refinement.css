@@ -90,8 +90,8 @@ html[data-theme="dark"] .chat-composer { background: rgba(0,0,0,.12); }
 
 .conversion-section { width: min(1180px, calc(100% - 72px)); }
 .problem-section, .how-section, .difference-section, .audience-section, .vision-section, .faq-section-new { border: 0; }
-.problem-copy, .workflow-card, .audience-panel, .difference-points, .vision-questions, .faq-list-new, .waitlist-card { border: 1px solid rgba(255, 253, 248, .72); background: var(--ed-surface); box-shadow: 0 26px 56px -43px var(--ed-shadow), inset 0 1px rgba(255,255,255,.68); backdrop-filter: blur(17px); }
-html[data-theme="dark"] .problem-copy, html[data-theme="dark"] .workflow-card, html[data-theme="dark"] .audience-panel, html[data-theme="dark"] .difference-points, html[data-theme="dark"] .vision-questions, html[data-theme="dark"] .faq-list-new, html[data-theme="dark"] .waitlist-card { border-color: var(--ed-line); box-shadow: 0 26px 56px -43px var(--ed-shadow), inset 0 1px rgba(255,255,255,.1); }
+.problem-copy, .workflow-card, .audience-panel, .difference-points, .vision-questions, .waitlist-card { border: 1px solid rgba(255, 253, 248, .72); background: var(--ed-surface); box-shadow: 0 26px 56px -43px var(--ed-shadow), inset 0 1px rgba(255,255,255,.68); backdrop-filter: blur(17px); }
+html[data-theme="dark"] .problem-copy, html[data-theme="dark"] .workflow-card, html[data-theme="dark"] .audience-panel, html[data-theme="dark"] .difference-points, html[data-theme="dark"] .vision-questions, html[data-theme="dark"] .waitlist-card { border-color: var(--ed-line); box-shadow: 0 26px 56px -43px var(--ed-shadow), inset 0 1px rgba(255,255,255,.1); }
 .problem-section, .difference-section, .faq-section-new { align-items: center; }
 .problem-copy { border-radius: 23px; padding: 23px 0; }
 .problem-copy strong { border-left-color: var(--ed-accent); color: var(--ed-text); }
@@ -102,7 +102,7 @@ html[data-theme="dark"] .problem-copy, html[data-theme="dark"] .workflow-card, h
 .difference-points p, .workflow-card > p, .audience-panel p, .vision-close p, .faq-item p { color: var(--ed-muted); }
 .vision-questions { padding: 11px 27px; border-radius: 21px; }
 .vision-question { border-color: var(--ed-line); color: var(--ed-text); }
-.faq-list-new { border-radius: 21px; padding: 0 25px; }
+.faq-list-new { border-radius: 0; padding: 0; border: 0; background: transparent; }
 .faq-item { border-color: var(--ed-line); }
 .faq-item summary { color: var(--ed-text); }
 .final-cta-section { border: 0; background: transparent; }

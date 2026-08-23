@@ -33,30 +33,52 @@ export const appRouter = router({
       if (input.website.trim()) return { success: true } as const;
 
       const email = input.email.trim().toLowerCase();
-      const existing = await getWaitlistSubmissionByEmail(email);
-      if (existing) return { success: false, alreadyRegistered: true } as const;
+      
+      try {
+        const existing = await getWaitlistSubmissionByEmail(email);
+        if (existing) return { success: false, alreadyRegistered: true } as const;
 
-      const rateLimit = await consumeWaitlistRateLimit(email);
-      if (!rateLimit.allowed) return { success: false, rateLimited: true, retryAfterSeconds: rateLimit.retryAfterSeconds } as const;
+        const rateLimit = await consumeWaitlistRateLimit(email);
+        if (!rateLimit.allowed) return { success: false, rateLimited: true, retryAfterSeconds: rateLimit.retryAfterSeconds } as const;
+      } catch (dbError) {
+        console.warn("[Waitlist] Database check skipped/unavailable:", dbError);
+      }
 
-      const id = await createWaitlistSubmission({
-        email,
-        fullName: "Anonymous",
-        role: "Waitlist",
-        problem: input.suggestion || "No suggestion provided",
-        currentProcess: null,
-        betaAccess: 1,
-        indispensableFeature: input.suggestion || null,
-        notificationStatus: "pending",
-      });
-      await recordWaitlistConversion(id);
+      let id = Date.now();
+      try {
+        id = await createWaitlistSubmission({
+          email,
+          fullName: "Anonymous",
+          role: "Waitlist",
+          problem: input.suggestion || "No suggestion provided",
+          currentProcess: null,
+          betaAccess: 1,
+          indispensableFeature: input.suggestion || null,
+          notificationStatus: "pending",
+        });
+        await recordWaitlistConversion(id);
+      } catch (dbError) {
+        console.warn("[Waitlist] Database write skipped/unavailable:", dbError);
+      }
 
       const delivery = await notifyWaitlistSubmission({ id, email, suggestion: input.suggestion });
-      const notificationStatus = delivery.telegramSent ? "sent" : delivery.deliveryErrors.join("+");
-      await updateWaitlistNotificationStatus(id, notificationStatus || "pending");
+      
+      try {
+        const notificationStatus = delivery.telegramSent ? "sent" : delivery.deliveryErrors.join("+");
+        await updateWaitlistNotificationStatus(id, notificationStatus || "pending");
+      } catch (dbError) {
+        console.warn("[Waitlist] Notification status update skipped/unavailable:", dbError);
+      }
 
-      const stats = await getWaitlistStats();
-      return { success: true, totalSubmissions: stats.allTimeSubmissions } as const;
+      let totalSubmissions = 1;
+      try {
+        const stats = await getWaitlistStats();
+        totalSubmissions = stats.allTimeSubmissions;
+      } catch (dbError) {
+        console.warn("[Waitlist] Stats check skipped/unavailable:", dbError);
+      }
+
+      return { success: true, totalSubmissions } as const;
     }),
     publicStats: publicProcedure.query(async () => {
       const stats = await getWaitlistStats();
