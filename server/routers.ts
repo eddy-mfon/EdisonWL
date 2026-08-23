@@ -52,7 +52,7 @@ export const appRouter = router({
       await recordWaitlistConversion(id);
 
       const delivery = await notifyWaitlistSubmission({ id, email, suggestion: input.suggestion });
-      const notificationStatus = delivery.emailSent && delivery.telegramSent ? "sent" : delivery.deliveryErrors.join("+");
+      const notificationStatus = delivery.telegramSent ? "sent" : delivery.deliveryErrors.join("+");
       await updateWaitlistNotificationStatus(id, notificationStatus || "pending");
 
       const stats = await getWaitlistStats();

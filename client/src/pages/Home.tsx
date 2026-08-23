@@ -1,7 +1,7 @@
 import { FormEvent, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, ArrowUpRight, Check, ChevronDown, LoaderCircle, Sparkles, WandSparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, ChevronDown, LoaderCircle, Plus, Sparkles, WandSparkles } from "lucide-react";
 import { reportWaitlistConversion } from "@/lib/conversionAnalytics";
 import { trpc } from "@/lib/trpc";
 
@@ -82,17 +82,13 @@ export default function Home() {
       const ease = "power3.out";
       gsap.timeline({ defaults: { ease } })
         .from(".conversion-nav", { y: -20, opacity: 0, duration: .62 })
-        .from(".hero-copy > *", { y: 38, opacity: 0, duration: .72, stagger: .1 }, "-=.22")
-        .from(".hero-device-scene", { y: 30, scale: .965, opacity: 0, duration: 1.05 }, "-=.58")
-        .from(".hero-signal", { y: 18, opacity: 0, duration: .48 }, "-=.45");
+        .from(".hero-copy > *", { y: 38, opacity: 0, duration: .72, stagger: .1 }, "-=.22");
       gsap.utils.toArray<HTMLElement>(".conversion-section").forEach(section => {
         gsap.from(section.querySelectorAll(".reveal"), { y: 44, opacity: 0, duration: .75, stagger: .09, ease, scrollTrigger: { trigger: section, start: "top 80%", once: true } });
       });
       gsap.utils.toArray<HTMLElement>(".workflow-card, .audience-panel, .vision-question, .faq-item").forEach((item, index) => {
         gsap.from(item, { y: 34, opacity: 0, duration: .66, ease, scrollTrigger: { trigger: item, start: "top 87%", once: true }, delay: index % 3 * .04 });
       });
-      gsap.from(".final-cta-copy", { y: 42, opacity: 0, duration: .78, ease, scrollTrigger: { trigger: ".final-cta-section", start: "top 78%", once: true } });
-      gsap.to(".hero-device-scene", { yPercent: -6, ease: "none", scrollTrigger: { trigger: ".conversion-hero", start: "top top", end: "bottom top", scrub: 1 } });
       gsap.to(".hero-glow", { scale: 1.18, ease: "none", scrollTrigger: { trigger: ".conversion-hero", start: "top top", end: "bottom top", scrub: 1 } });
     }, root);
     return () => context.revert();
@@ -110,16 +106,28 @@ export default function Home() {
         <div className="hero-layout hero-layout-reference">
           <div className="hero-copy hero-copy-reference">
             <SectionLabel>The memory for your work</SectionLabel>
-            <h1>Stop losing <em>important work</em><br />to scattered tabs, chats, and documents.</h1>
+            <h1>Stop losing <em>important work.</em></h1>
             <p>Edison brings your team’s knowledge, ideas, decisions, and next steps into one intelligent place — so you can find what matters without asking five people or digging through twenty tabs.</p>
+            <div className="hero-cta-block">
+              {ctaSubmitted ? (
+                <div className="cta-waitlist-success hero-success" role="status">
+                  <span className="cta-success-mark" aria-hidden="true"><Check size={16} strokeWidth={2.5} /></span>
+                  <span><strong>You’re on the list.</strong><small><b>{ctaSubmittedEmail}</b> is on the early-access list.</small></span>
+                </div>
+              ) : (
+                <>
+                  <form className="hero-waitlist-form" onSubmit={submitCta} noValidate>
+                    <label><span className="sr-only">Email address</span><input required type="email" name="email" autoComplete="email" placeholder="you@example.com" aria-label="Email address" aria-invalid={Boolean(ctaSubmissionError)} onChange={() => ctaSubmissionError && setCtaSubmissionError(null)} /></label>
+                    <div className="honeypot" aria-hidden="true"><label>Website<input tabIndex={-1} autoComplete="off" name="website" /></label></div>
+                    <button className="conversion-button primary hero-cta-btn" type="submit" disabled={submitCtaWaitlist.isPending} aria-busy={submitCtaWaitlist.isPending}>
+                      {submitCtaWaitlist.isPending ? <><LoaderCircle className="cta-submit-spinner" size={14} aria-hidden="true" /><span>Joining…</span></> : <><span>Join the waitlist</span><ArrowUpRight size={17} /></>}
+                    </button>
+                  </form>
+                  {ctaSubmissionError && <p className="cta-form-error hero-form-error" role="alert">{ctaSubmissionError}</p>}
+                </>
+              )}
+            </div>
           </div>
-          <figure className="hero-device-scene" aria-label="Phone loading Edison beside a laptop showing the Edison work-memory workspace">
-            <div className="device-scene-halo" aria-hidden="true" />
-            <picture>
-              <source srcSet="/manus-storage/edison-device-scene-final-alpha_f7a3802c.webp" type="image/webp" />
-              <img src="/manus-storage/edison-device-scene-final-alpha_61fc65f0.png" alt="Edison phone loading work memory beside a laptop workspace with a memory rail, ask field, and next actions" width="2560" height="1440" loading="eager" fetchPriority="high" decoding="async" />
-            </picture>
-          </figure>
         </div>
         <div className="reference-footer-proof"><span>One workspace</span><i>•</i><span>Clear context</span><i>•</i><span>Useful next steps</span></div>
       </section>
@@ -151,11 +159,37 @@ export default function Home() {
       </section>
 
       <section className="conversion-section faq-section-new" id="faq">
-        <div className="section-intro reveal"><SectionLabel>FAQ</SectionLabel><h2>Clear answers, <em>before you join.</em></h2></div>
-        <div className="faq-list-new">{faqs.map(([question, answer], index) => <article className={`faq-item${openFaq === index ? " is-open" : ""}`} key={question}><button className="faq-trigger" type="button" aria-expanded={openFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setOpenFaq(openFaq === index ? null : index)}><span>{question}</span><ChevronDown size={19} /></button><div className="faq-answer" id={`faq-answer-${index}`} role="region" aria-label={question}><p>{answer}</p></div></article>)}</div>
+        <div className="section-intro reveal"><SectionLabel>Inquiries & Clarity</SectionLabel><h2>Frequently Asked <em>Questions.</em></h2></div>
+        <div className="faq-list-new">
+          {faqs.map(([question, answer], index) => {
+            const romanNumerals = ["I", "II", "III", "IV", "V", "VI"];
+            return (
+              <article className={`faq-item${openFaq === index ? " is-open" : ""}`} key={question}>
+                <button className="faq-trigger" type="button" aria-expanded={openFaq === index} aria-controls={`faq-answer-${index}`} onClick={() => setOpenFaq(openFaq === index ? null : index)}>
+                  <span className="faq-numeral">{romanNumerals[index] || `0${index + 1}`}</span>
+                  <span className="faq-question-text">{question}</span>
+                  <Plus size={17} className="faq-icon" />
+                </button>
+                <div className="faq-answer" id={`faq-answer-${index}`} role="region" aria-label={question}>
+                  <p>{answer}</p>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
-      <section className="final-cta-section" id="waitlist"><div className="final-cta-copy"><SectionLabel>Early access</SectionLabel><h2>Keep your work<em>in reach.</em></h2><p>Join the waitlist.</p>{ctaSubmitted ? <div className="cta-waitlist-success" role="status"><span className="cta-success-mark" aria-hidden="true"><Check size={16} strokeWidth={2.5} /></span><span><strong>You’re on the list.</strong><small><b>{ctaSubmittedEmail}</b> is on the early-access list.</small></span></div> : <><form className="cta-waitlist-form" onSubmit={submitCta} noValidate><label><span className="sr-only">Email address</span><input required type="email" name="email" autoComplete="email" placeholder="you@example.com" aria-label="Email address" aria-invalid={Boolean(ctaSubmissionError)} onChange={() => ctaSubmissionError && setCtaSubmissionError(null)} /></label><div className="honeypot" aria-hidden="true"><label>Website<input tabIndex={-1} autoComplete="off" name="website" /></label></div><button className="conversion-button primary" type="submit" disabled={submitCtaWaitlist.isPending} aria-busy={submitCtaWaitlist.isPending}>{submitCtaWaitlist.isPending ? <><LoaderCircle className="cta-submit-spinner" size={14} aria-hidden="true" /><span>Joining…</span></> : <><span>Join waitlist</span><ArrowUpRight size={18} /></>}</button></form>{ctaSubmissionError && <p className="cta-form-error" role="alert">{ctaSubmissionError}</p>}</>}</div></section>
+      <section className="conversion-section post-faq-cta reveal">
+        <div className="post-faq-cta-card">
+          <SectionLabel>Early access</SectionLabel>
+          <h2>Ready to keep your work <em>in reach?</em></h2>
+          <p>Join early users building the future of work memory.</p>
+          <a className="conversion-button primary post-faq-btn" href="#product">
+            <span>Join the waitlist</span>
+            <ArrowUpRight size={18} />
+          </a>
+        </div>
+      </section>
 
       <footer className="conversion-footer"><div><a className="conversion-brand" href="/">edison<span>•</span></a><p>The intelligent home for your work.</p></div><nav aria-label="Legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav><span>© 2026 Edison</span></footer>
     </main>

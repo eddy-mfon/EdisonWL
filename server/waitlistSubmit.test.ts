@@ -47,7 +47,7 @@ describe("waitlist.submit", () => {
       createdAt: new Date("2026-08-18T12:00:00.000Z"),
     }]);
     mocks.updateWaitlistNotificationStatus.mockResolvedValue(undefined);
-    mocks.notifyWaitlistSubmission.mockResolvedValue({ emailSent: true, telegramSent: true, deliveryErrors: [] });
+    mocks.notifyWaitlistSubmission.mockResolvedValue({ telegramSent: true, deliveryErrors: [] });
   });
 
   it("persists a minimal public signal and records a successful delivery", async () => {

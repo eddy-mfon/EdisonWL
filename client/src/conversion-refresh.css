@@ -102,15 +102,27 @@ html[data-theme="light"] .theme-toggle-track span { transform: translateX(0); }
 .vision-close h3 { margin: 0 0 14px; font-family: "Manrope", sans-serif; font-size: 28px; letter-spacing: -.06em; }
 .vision-close p { margin: 0; color: var(--ed-muted); font-size: 18px; line-height: 1.7; }
 .vision-close strong { display: block; color: var(--ed-text); }
-.faq-section-new { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1fr); gap: clamp(42px, 10vw, 150px); border-top: 1px solid var(--ed-line); }
-.faq-list-new { display: grid; align-content: start; }
-.faq-item { border-top: 1px solid var(--ed-line); }
-.faq-item:last-child { border-bottom: 1px solid var(--ed-line); }
-.faq-item summary { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 18px; cursor: pointer; font-size: 16px; font-weight: 700; list-style: none; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary svg { transition: transform .2s ease; }
-.faq-item[open] summary svg { transform: rotate(180deg); }
-.faq-item p { max-width: 590px; padding: 0 0 23px; margin: -2px 0 0; color: var(--ed-muted); line-height: 1.68; }
+.faq-section-new { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1fr); gap: clamp(42px, 8vw, 100px); border-top: 1px solid rgba(255, 235, 215, 0.08); padding: clamp(60px, 9vw, 110px) 0; }
+.faq-list-new { display: grid; gap: 0; align-content: start; border-top: 1px solid rgba(255, 235, 215, 0.12); }
+.faq-item { border-bottom: 1px solid rgba(255, 235, 215, 0.12); border-radius: 0; background: transparent; transition: background .3s ease; }
+.faq-item.is-open { background: rgba(255, 245, 235, 0.02); }
+.faq-trigger { display: flex; width: 100%; min-height: 72px; padding: 22px 10px; align-items: center; justify-content: space-between; gap: 20px; border: 0; background: transparent; color: var(--ed-text); text-align: left; cursor: pointer; transition: color .25s ease; }
+.faq-numeral { font-family: Georgia, "Times New Roman", serif; font-size: 13px; letter-spacing: 0.15em; color: rgba(255, 190, 144, 0.55); width: 36px; flex-shrink: 0; font-style: italic; }
+.faq-question-text { font-family: Georgia, "Times New Roman", serif; font-size: clamp(17px, 1.8vw, 20px); font-weight: 400; letter-spacing: -0.015em; color: #fff8ef; flex: 1; transition: color .25s ease; }
+.faq-trigger:hover .faq-question-text { color: #ffceaa; }
+.faq-trigger:hover .faq-numeral { color: #ffbe90; }
+.faq-icon { color: rgba(255, 235, 215, 0.4); flex-shrink: 0; transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), color .35s ease; }
+.faq-item.is-open .faq-icon { transform: rotate(45deg); color: #ffbe90; }
+.faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(0.16, 1, 0.3, 1); }
+.faq-item.is-open .faq-answer { grid-template-rows: 1fr; }
+.faq-answer > p { overflow: hidden; max-width: 580px; padding: 0 10px 24px 46px; margin: 0; color: rgba(255, 245, 235, 0.68); font-family: "Manrope", sans-serif; font-size: 14px; line-height: 1.75; letter-spacing: 0.01em; }
+
+.post-faq-cta { padding: clamp(40px, 6vw, 70px) 0 clamp(60px, 8vw, 100px); display: flex; justify-content: center; }
+.post-faq-cta-card { width: 100%; max-width: 820px; text-align: center; border: 1px solid var(--ed-line); border-radius: 24px; padding: clamp(36px, 6vw, 64px) clamp(24px, 5vw, 48px); background: radial-gradient(circle at 50% 0%, rgba(225, 115, 45, 0.14) 0%, rgba(10, 5, 2, 0.6) 70%); backdrop-filter: blur(14px); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.post-faq-cta-card h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 400; color: var(--ed-text); }
+.post-faq-cta-card h2 em { font-style: italic; }
+.post-faq-cta-card p { margin: 0; color: var(--ed-muted); font-size: 15px; }
+.post-faq-btn { margin-top: 12px; height: 46px; padding: 0 24px; font-size: 13px; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
 .final-cta-section { position: relative; isolation: isolate; padding: clamp(94px, 11vw, 155px) max(36px, calc((100vw - 1180px) / 2)); overflow: hidden; border-top: 1px solid var(--ed-line); background: radial-gradient(circle at 80% 35%, color-mix(in srgb, var(--ed-accent) 17%, transparent), transparent 32%), var(--ed-surface); }
 .final-cta-section::after { position: absolute; z-index: -1; right: -14%; top: 15%; width: 39vw; aspect-ratio: 1; border: 1px solid var(--ed-line); border-radius: 50%; content: ""; }
 .final-cta-copy { max-width: 890px; }
