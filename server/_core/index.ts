@@ -46,6 +46,42 @@ async function startServer() {
       res.sendStatus(500);
     }
   });
+  app.post("/api/waitlist", async (req, res) => {
+    try {
+      const { email, website } = req.body || {};
+      if (website && String(website).trim().length > 0) {
+        res.status(200).json({ success: true });
+        return;
+      }
+      const cleanEmail = String(email || "").trim().toLowerCase();
+      if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+        res.status(400).json({ success: false, error: "Invalid email address" });
+        return;
+      }
+      const botToken = process.env.TELEGRAM_BOT_TOKEN;
+      const chatId = process.env.TELEGRAM_CHAT_ID;
+      if (botToken && chatId) {
+        const telegramText = [
+          "<b>Edison / New waitlist signal</b>",
+          `<a href="mailto:${cleanEmail}">${cleanEmail}</a>`,
+        ].join("\n");
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: telegramText,
+            parse_mode: "HTML",
+            disable_web_page_preview: true,
+          }),
+        });
+      }
+      res.status(200).json({ success: true });
+    } catch (error) {
+      console.error("[Waitlist API] Local error:", error);
+      res.status(200).json({ success: true });
+    }
+  });
   // tRPC API
   app.use(
     "/api/trpc",
